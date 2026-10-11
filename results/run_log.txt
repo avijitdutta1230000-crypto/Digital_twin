@@ -1,0 +1,68 @@
+City: 49 intersections, 84 road sensors, 9 zones
+
+=== traffic: target (5760, 84), exogenous (5760, 5) ===
+  training Persistence (1 params)
+    MAE=8.605 RMSE=11.988 MAPE=34.69%
+  training LSTM (309,240 params)
+    MAE=2.103 RMSE=3.966 MAPE=11.25%
+  training CNN-LSTM (193,848 params)
+    MAE=2.063 RMSE=3.921 MAPE=10.90%
+  training MM-STFormer (ours) (75,591 params)
+    MAE=2.182 RMSE=3.961 MAPE=11.28%
+  training w/o exogenous fusion (75,335 params)
+    MAE=2.561 RMSE=4.542 MAPE=13.01%
+  training w/o graph mixing (75,591 params)
+    MAE=2.097 RMSE=3.859 MAPE=11.07%
+
+=== pollution: target (5760, 9), exogenous (5760, 16) ===
+  training Persistence (1 params)
+    MAE=11.301 RMSE=14.890 MAPE=21.52%
+  training LSTM (218,422 params)
+    MAE=4.471 RMSE=6.679 MAPE=9.98%
+  training CNN-LSTM (123,510 params)
+    MAE=4.513 RMSE=6.811 MAPE=10.12%
+  training MM-STFormer (ours) (71,495 params)
+    MAE=4.352 RMSE=6.964 MAPE=9.51%
+  training w/o exogenous fusion (70,535 params)
+    MAE=6.142 RMSE=9.521 MAPE=12.85%
+  training w/o graph mixing (71,495 params)
+    MAE=4.330 RMSE=6.911 MAPE=9.47%
+
+=== electricity: target (5760, 9), exogenous (5760, 6) ===
+  training Persistence (1 params)
+    MAE=2.122 RMSE=2.674 MAPE=35.33%
+  training LSTM (213,302 params)
+    MAE=0.424 RMSE=0.847 MAPE=9.31%
+  training CNN-LSTM (121,590 params)
+    MAE=0.413 RMSE=0.813 MAPE=8.84%
+  training MM-STFormer (ours) (70,855 params)
+    MAE=0.438 RMSE=0.866 MAPE=9.26%
+  training w/o exogenous fusion (70,535 params)
+    MAE=0.480 RMSE=0.907 MAPE=9.93%
+  training w/o graph mixing (70,855 params)
+    MAE=0.437 RMSE=0.867 MAPE=9.31%
+
+=== flood segmentation ===
+   {'IoU': 0.8889450442015957, 'F1': 0.9412079477170051, 'baseline_threshold_IoU': 0.32017704211544623}
+
+=== routing ===
+ {
+ "normal": {
+  "trips": 300,
+  "twin_mean_min": 2.1113564813274928,
+  "static_mean_min": 2.1382583846340864,
+  "static_blocked_pct": 0.0,
+  "twin_reached_pct": 100.0,
+  "time_saved_pct_on_passable": 1.2581221942079446
+ },
+ "flood": {
+  "trips": 36,
+  "twin_mean_min": 2.9665522944117946,
+  "static_mean_min": 3.0531221897651584,
+  "static_blocked_pct": 0.0,
+  "twin_reached_pct": 100.0,
+  "time_saved_pct_on_passable": 2.8354546583025053
+ }
+}
+
+Done. See results/metrics.json, results/results_table.md, results/figures/
